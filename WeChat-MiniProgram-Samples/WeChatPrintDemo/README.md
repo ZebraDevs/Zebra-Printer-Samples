@@ -10,7 +10,7 @@ To enable Bluetooth LE on a printer, use one of the following Zebra SGD commands
 
 ## Code overview
 As defined in [Link-OS Environment Bluetooth Low Energy AppNote](https://www.zebra.com/content/dam/zebra/software/en/application-notes/AppNote-BlueToothLE-v4.pdf) document by Zebra, the UUIDs of the services and characteristics of Zebra BLE enabled printers are defined in pages/index/index.js file as below.
-```Objective-C
+```javascript
 // Zebra Bluetooth LE services and characteristics UUIDs
 const ZPRINTER_DIS_SERVICE_UUID = "0000180A-0000-1000-8000-00805F9B34FB" // Or "180A". Device Information Services UUID
 const ZPRINTER_SERVICE_UUID="38EB4A80-C570-11E3-9507-0002A5D5C51B"       // Zebra Bluetooth LE Parser Service
@@ -20,7 +20,7 @@ const WRITE_TO_ZPRINTER_CHARACTERISTIC_UUID  = "38EB4A82-C570-11E3-9507-0002A5D5
 
 ## Write to characteristic
 Each write operation to the characteristic is limited to a number of bytes in BLE. We need to break the ZPL or image data into small chunks and write a chunk of bytes a time to the characteristic. On iOS, the wx.writeBLECharacteristicValue() has no issues when writing each chunk one after another. On Android, however, we must provide a delay between the writes of chunks. Following code illustrates how the ZPL or image data is broke into chunks and how the delay is implemented for Android. Both the maxChunk and the delay in setTimeout() should be tuned to fit your particular Android device and performance. Currently, the delay is 250ms for each write.
-```Objective-c
+```javascript
   // Write printer language string to the printer
   writeStringToPrinter: function (str) {
 
