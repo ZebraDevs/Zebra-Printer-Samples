@@ -9,6 +9,91 @@ To enable Bluetooth LE on a printer, use one of the following Zebra SGD commands
 * `! U1 setvar "bluetooth.le.controller_mode" "both"`
 
 ## Code overview
+As defined in [Link-OS Environment Bluetooth Low Energy AppNote](https://www.zebra.com/content/dam/zebra/software/en/application-notes/AppNote-BlueToothLE-v4.pdf) document by Zebra, the UUIDs of the services and characteristics of Zebra BLE enabled printers are defined in pages/index/index.js file as below.
+```Objective-C
+// Zebra Bluetooth LE services and characteristics UUIDs
+const ZPRINTER_DIS_SERVICE_UUID = "0000180A-0000-1000-8000-00805F9B34FB" // Or "180A". Device Information Services UUID
+const ZPRINTER_SERVICE_UUID="38EB4A80-C570-11E3-9507-0002A5D5C51B"       // Zebra Bluetooth LE Parser Service
+const READ_FROM_ZPRINTER_CHARACTERISTIC_UUID = "38EB4A81-C570-11E3-9507-0002A5D5C51B" // Read from printer characteristic
+const WRITE_TO_ZPRINTER_CHARACTERISTIC_UUID  = "38EB4A82-C570-11E3-9507-0002A5D5C51B" // Write to printer characteristic
+```
+
+## Write to characteristic
+Each write operation to the characteristic is limited to a number of bytes in BLE. We need to break the ZPL or image data into small chunks and write a chunk of bytes a time to the characteristic. On iOS, the wx.writeBLECharacteristicValue() has no issues when writing each chunk one after another. On Android, however, we must provide a delay between the writes of chunks. Following code illustrates how the ZPL or image data is broke into chunks and how the delay is implemented for Android. Both the maxChunk and the delay in setTimeout() should be tuned to fit your particular Android device and performance. Currently, the delay is 250ms for each write.
+```Objective-c
+  // Write printer language string to the printer
+  writeStringToPrinter: function (str) {
+
+    var that = this
+
+    var maxChunk = 20 // Default is 20 bytes per write to characteristic
+
+    if (app.getPlatform() == 'ios') {
+      maxChunk = 300 // 300 bytes per write to characteristic works for iOS
+    } else if (app.getPlatform() == 'android') {
+      var maxChunk = 300 // Adjusting for Android      
+    }
+
+    if (str.length <= maxChunk) {
+      writeStrToCharacteristic(str)
+    } else {
+      // Need to partion the string and write one chunk at a time.
+      var j = 0
+      for (var i = 0; i < str.length; i += maxChunk) {
+        if (i + maxChunk <= str.length) {
+          var subStr = str.substring(i, i + maxChunk)
+        } else {
+          var subStr = str.substring(i, str.length)
+        }
+
+        if (app.getPlatform() == 'ios') {
+          writeStrToCharacteristic(subStr) // iOS doesn't need the delay during each write
+        } else {
+          // Android needs delay during each write.
+          setTimeout(writeStrToCharacteristic, 250 * j, subStr) // Adjust the delay if needed
+          j++
+        }
+      }
+    }
+
+    function writeStrToCharacteristic (str) {
+      // Convert str to ArrayBuff and write to printer
+      let buffer = new ArrayBuffer(str.length)
+      let dataView = new DataView(buffer)
+      for (var i = 0; i < str.length; i++) {
+        dataView.setUint8(i, str.charAt(i).charCodeAt())
+      }
+
+      // Write buffer to printer
+      wx.writeBLECharacteristicValue({
+        deviceId: that.data.connectedDeviceId,
+        serviceId: ZPRINTER_SERVICE_UUID,
+        characteristicId: WRITE_TO_ZPRINTER_CHARACTERISTIC_UUID,
+        value: buffer,
+        success: function (res) {
+          wx.showToast({
+            title: 'Sent ZPL to printer successfully',
+            icon: 'success',
+            duration: 1000,
+          })
+        },
+        fail: function (res) {
+          console.log("ssi - Failed to send ZPL to printer:", res)
+          wx.showToast({
+            title: 'Failed to send ZPL',
+            icon: 'none',
+            duration: 1000,
+          })
+        }
+      })
+    }
+  },
+```
+
+## Screenshots
+
+
+
 `ZPrinterLEService.h` defines the UUID of services and characteristics as specified in [Link-OS Environment Bluetooth Low Energy AppNote](https://www.zebra.com/content/dam/zebra/software/en/application-notes/AppNote-BlueToothLE-v4.pdf). The `ScanBLEZPrinterTableViewController.m` handles scanning, discovering and connecting. The Apple iOS Bluetooth LE framework uses asynchronous callbacks to notify the application when a peripheral is found, a service or a characteristic is discovered. `ScanBLEZPrinterTableViewController.m` calls iOS Bluetooth LE framework to initiate scan, discover and connect, and it implements the corresponding callbacks too.
 
 `ConnectBLEZPrinterViewController.m` handles the UI in `Connected` view. `ScanBLEZPrinterTableViewController.m` communicates to `ConnectBLEZPrinterViewController.m` via Notification Center when the value of a characteristic has been updated. There are three types of notifications, `WriteNotification, ReadNotification & DISNotification`, which are all defined in `ZPrinterLEService.h`. The `viewDidLoad` in `ConnedtBLEPrinterViewController.m` registers for these notifications.
