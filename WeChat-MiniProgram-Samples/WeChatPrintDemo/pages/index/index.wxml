@@ -1,0 +1,51 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> Get User Avatar & Name </button> 
+    <block wx:else> 
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block> 
+  </view>
+  
+  <!-- Start, Stop & Clear scanning -->
+  <view class="startStopClear">
+      <text bindtap="bindViewTapStartStop" class="startStop">{{isScanning ? "Stop Scanning" : "Start Scanning"}}</text>
+      <text class="clear" bindtap="bindViewTapClear" wx:if="{{isScanning == false}}">Clear</text> 
+      <!-- <text class="clear" bindtap="bindViewTapPrintTestLabel" wx:if="{{isConnected == true}}">Print Test Label</text>  -->
+
+     <!-- <text bindtap="bindViewTapStartStop" class="startStop" id="stop" wx:if="{{isScanning == true}}">Stop Scanning</text>
+     <text bindtap="bindViewTapStartStop" class="startStop" id="start" wx:if="{{isScanning == false}}">Start Scanning</text>
+     <text bindtap="bindViewTapClear" class="clear" wx:if="{{isScanning == false}}">Clear</text> -->
+  </view>
+
+  <!-- Error info  -->
+  <view class="infoLog"><text>{{infoLog}}</text></view>
+
+  <!-- Scanned list -->
+  <view class="dev-list" wx:for="{{devicesArray}}">
+    <view><text class="device">DeviceID:</text><text> {{item.deviceId}}</text></view>
+    <view><text class="device">DeviceName:</text><text> {{item.name}} </text>
+          <!-- <text class="button" bindtap="bindViewTapConnect" id="{{item.deviceId}}" wx:if="{{isConnected == false && isScanning == true}}">Connect</text>  -->
+          <text class="button" bindtap="bindViewTapConnect" id="{{item.deviceId}}" wx:if="{{isConnected == false && item.deviceId != 'Device ID'}}">Connect</text> 
+          <!-- <text class="button" bindtap="bindViewTapConnect" id="{{item.deviceId}}" wx:if="{{isConnected == false}}">Connect</text> -->
+          <text class="mark" wx:if="{{isConnected == true && item.deviceId == connectedDeviceId}}">√Connected</text>
+          <text class="button" bindtap="bindViewTapPrintTestLabel" wx:if="{{isConnected == true && item.deviceId == connectedDeviceId}}">Print Test Label</text>
+    </view>
+    <view><text class="device">LocalName:</text><text> {{item.localName}} </text></view>
+    <view><text class="device">RSSI:</text><text> {{item.RSSI}}</text>
+          <text class="button" bindtap="bindViewTapPrintTestImage" wx:if="{{isConnected == true && item.deviceId == connectedDeviceId}}">Print Test Image</text>        
+    </view>
+    <view><text class="device">Counter:</text><text> {{item.counter}}</text></view>
+    <view><text class="device">AdData:</text><text> {{item.advertisData}}</text>
+          <text class="button" bindtap="bindViewTapDisconnect" wx:if="{{isConnected == true && item.deviceId == connectedDeviceId}}">Disconnect</text>    
+    </view>
+    <view><text class="device">AdSerUUID:</text><text> {{item.advertisServiceUUIDs}}</text></view>
+    <view><text class="device">ServiceData:</text><text> {{item.serviceData}}</text></view>
+
+  </view>
+
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view>
