@@ -1,5 +1,5 @@
 ## Introduction
-Zebra printers of ZQ300 & ZQ500 series mobile printers, ZD400 & ZD600 series desktop printers, and ZT600 series industrial printers have both Bluetooth Classic and Low Energy (LE) capabilities. This WeChatPrintDemo demonstrates how to scan, connect, send ZPL to a BLE enabled Zebra printer from WeCha Mini-Program to print labels and images. For details on how to creat WeChat Mini-Program, please refer to [WeChat Mini-Program Developer](https://mp.weixin.qq.com/) site, where you can register a developer account, check out the API documentation, download SDK and tutorials.
+Zebra printers of ZQ300 & ZQ500 series mobile printers, ZD400 & ZD600 series desktop printers, and ZT600 series industrial printers have both Bluetooth Classic and Low Energy (LE) capabilities. This WeChatPrintDemo demonstrates how to scan, connect, send ZPL to a BLE enabled Zebra printer from WeChat Mini-Program to print labels and images. For details on how to create WeChat Mini-Program, please refer to [WeChat Mini-Program Developer](https://mp.weixin.qq.com/) site, where you can register a developer account, check out the API documentation, download SDK and tutorials.
 
 To query if Bluetooth LE is enabled or not on a printer, use Zebra SGD command below with [Zebra Setup Utilities](https://www.zebra.com/us/en/products/software/barcode-printers/zebralink/zebra-setup-utility.html):
 * `! U1 getvar "bluetooth.le.controller_mode"`
@@ -98,7 +98,7 @@ Each write to the characteristic operation is limited to a number of bytes in BL
 <img src="https://github.com/Zebra/Zebra-Printer-Samples/blob/master/WeChat-MiniProgram-Samples/WeChatPrintDemo/WeChatPrintDemo.jpg" width="400">
 
 ## Notes
-1. On Android, the access permission to location service should be givin to the WeChat app in order for this mini-program to scan for and connect to a Bluetooth LE device. Otherwise, this mini-program won't be able to find any BLE devices during the scan operation.
+1. On Android, the access permission to location service should be given to the WeChat app in order for this mini-program to scan for and connect to a Bluetooth LE device. Otherwise, this mini-program won't be able to find any BLE devices during the scan operation.
 2. On Android, the sequential execution of wx.writeBLECharacteristicValue() without delay in between will cause the write operation to fail. In this example, we give 250ms delay in between. This delay can be adjusted if needed.
 
 ## References
