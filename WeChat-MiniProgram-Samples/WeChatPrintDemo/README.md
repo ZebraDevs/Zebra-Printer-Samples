@@ -108,4 +108,4 @@ Each write to the characteristic operation is limited to a number of bytes in BL
 ## References
 This ZebraPrinterBLEDemo uses or refers to the following materials:
 * [Link-OS Environment Bluetooth Low Energy AppNote](https://www.zebra.com/content/dam/zebra/software/en/application-notes/AppNote-BlueToothLE-v4.pdf), by Zebra
-* [WeChat Mini-Program Software Developer Kit](https://mp.weixin.qq.com/), by Weixin
+* [WeChat Mini-Program Software Developer Kit](https://mp.weixin.qq.com/), by Tencent
