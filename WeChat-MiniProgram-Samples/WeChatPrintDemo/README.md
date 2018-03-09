@@ -102,7 +102,7 @@ Each write to the characteristic operation is limited to a number of bytes in BL
 <img src="https://github.com/Zebra/Zebra-Printer-Samples/blob/master/WeChat-MiniProgram-Samples/WeChatPrintDemo/PrintoutOfWeChatPrintDem.jpg" width="400">
 
 ## Notes
-1. On Android, the access permission to location service should be given to the WeChat app in order for this mini-program to scan for and connect to a Bluetooth LE device. Otherwise, this mini-program won't be able to find any BLE devices during the scan operation.
+1. On Android, the WeChat app should be granted with access permission to location service first. in order for this mini-program to scan for and connect to a Bluetooth LE device. Otherwise, this mini-program won't be able to find any BLE devices during the scan operation. To grant location permission to WeChat app, go to Settings -> Apps -> WeChat -> Permissions.
 2. On Android, the sequential execution of wx.writeBLECharacteristicValue() without delay in between will cause the write operation to fail. In this example, we give 250ms delay in between. This delay can be adjusted if needed.
 
 ## References
