@@ -94,8 +94,12 @@ Each write to the characteristic operation is limited to a number of bytes in BL
   },
 ```
 
-## Screenshots
+## Screenshot and printout
+###### A screenshot of the mini-program
 <img src="https://github.com/Zebra/Zebra-Printer-Samples/blob/master/WeChat-MiniProgram-Samples/WeChatPrintDemo/WeChatPrintDemo.jpg" width="400">
+
+###### Printouts of a barcode and a logo image on a 2" wide label from Zebra ZD410 desktop printer
+<img src="https://github.com/Zebra/Zebra-Printer-Samples/blob/master/WeChat-MiniProgram-Samples/WeChatPrintDemo/PrintoutOfWeChatPrintDem.jpg" width="400">
 
 ## Notes
 1. On Android, the access permission to location service should be given to the WeChat app in order for this mini-program to scan for and connect to a Bluetooth LE device. Otherwise, this mini-program won't be able to find any BLE devices during the scan operation.
@@ -104,3 +108,4 @@ Each write to the characteristic operation is limited to a number of bytes in BL
 ## References
 This ZebraPrinterBLEDemo uses or refers to the following materials:
 * [Link-OS Environment Bluetooth Low Energy AppNote](https://www.zebra.com/content/dam/zebra/software/en/application-notes/AppNote-BlueToothLE-v4.pdf), by Zebra
+* [WeChat Mini-Program Software Developer Kit](https://mp.weixin.qq.com/), by Weixin
