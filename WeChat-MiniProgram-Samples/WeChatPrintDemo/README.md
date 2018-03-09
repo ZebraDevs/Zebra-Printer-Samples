@@ -23,7 +23,7 @@ const WRITE_TO_ZPRINTER_CHARACTERISTIC_UUID  = "38EB4A82-C570-11E3-9507-0002A5D5
 ```
 
 ## Write to characteristic
-Each write operation to the characteristic is limited to a number of bytes in BLE. We need to break the ZPL or image data into small chunks and write a chunk of bytes a time to the characteristic. On iOS, the wx.writeBLECharacteristicValue() has no issues when writing each chunk one after another. On Android, however, we must provide a delay between the writes of chunks. Following code illustrates how the ZPL or image data is broke into chunks and how the delay is implemented for Android. Both the maxChunk and the delay in setTimeout() should be tuned to fit your particular Android device and performance. Currently, the delay is 250ms for each write.
+Each write to the characteristic operation is limited to a number of bytes in BLE. We need to break the ZPL or image data into small chunks and write a chunk of bytes a time to the characteristic. On iOS, the wx.writeBLECharacteristicValue() has no issues when writing each chunk one after another. On Android, however, we must provide a delay between the writes of chunks. Following code illustrates how to break the ZPL or image data into chunks and how the delay is implemented for Android. Both the maxChunk and the delay in setTimeout() should be tuned to fit a particular Android device and performance. Currently, the delay is 250ms for each write.
 ```javascript
   // Write printer language string to the printer
   writeStringToPrinter: function (str) {
@@ -97,8 +97,9 @@ Each write operation to the characteristic is limited to a number of bytes in BL
 ## Screenshots
 <img src="https://github.com/Zebra/Zebra-Printer-Samples/blob/master/WeChat-MiniProgram-Samples/WeChatPrintDemo/WeChatPrintDemo.jpg" width="400">
 
-## Screenshot of the demo
-![Screenshot of the demo](https://github.com/Zebra/LinkOS-iOS-Samples/blob/ZebraPrinterBLEDemo/ZebraPrinterBLEDemo/ZebraPrinterBLEDemo.png)
+## Notes
+1. On Android, the access permission to location service should be givin to the WeChat app in order for this mini-program to scan for and connect to a Bluetooth LE device. Otherwise, this mini-program won't be able to find any BLE devices during the scan operation.
+2. On Android, the sequential execution of wx.writeBLECharacteristicValue() without delay in between will cause the write operation to fail. In this example, we give 250ms delay in between. This delay can be adjusted if needed.
 
 ## References
 This ZebraPrinterBLEDemo uses or refers to the following materials:
