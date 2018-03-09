@@ -1,5 +1,5 @@
 ## Introduction
-Zebra printers of ZQ300 & ZQ500 series mobile printers, ZD400 & ZD600 series desktop printers, and ZT600 series industrial printers have both Bluetooth Classic and Low Energy (LE) capabilities. This WeChatPrintDemo demonstrates how to scan, connect, send ZPL to a BLE enabled Zebra printer from WeChat Mini-Program to print labels and images. For details on how to create WeChat Mini-Program, please refer to [WeChat Mini-Program Developer](https://mp.weixin.qq.com/) site, where you can register a developer account, check out the API documentation, download SDK and tutorials.
+Zebra printers of ZQ300 & ZQ500 series mobile printers, ZD400 & ZD600 series desktop printers, and ZT600 series industrial printers have both Bluetooth Classic and Low Energy (LE) capabilities. This WeChatPrintDemo demonstrates how to scan, connect, send ZPL to a BLE enabled Zebra printer from WeChat Mini-Program to print labels and images. For details on how to create WeChat Mini-Program, please refer to [WeChat Mini-Program for Developers](https://mp.weixin.qq.com/) site, where you can register a developer account, check out the API documentation, download SDK and tutorials.
 
 To query if Bluetooth LE is enabled or not on a printer, use Zebra SGD command below with [Zebra Setup Utilities](https://www.zebra.com/us/en/products/software/barcode-printers/zebralink/zebra-setup-utility.html):
 * `! U1 getvar "bluetooth.le.controller_mode"`
@@ -108,4 +108,4 @@ Each write to the characteristic operation is limited to a number of bytes in BL
 ## References
 This ZebraPrinterBLEDemo uses or refers to the following materials:
 * [Link-OS Environment Bluetooth Low Energy AppNote](https://www.zebra.com/content/dam/zebra/software/en/application-notes/AppNote-BlueToothLE-v4.pdf), by Zebra
-* [WeChat Mini-Program Software Developer Kit](https://mp.weixin.qq.com/), by Tencent
+* [WeChat Mini-Program Software Development Kit](https://mp.weixin.qq.com/), by Tencent
