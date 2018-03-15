@@ -106,6 +106,6 @@ Each write to the characteristic operation is limited to a number of bytes in BL
 2. On Android, the sequential execution of wx.writeBLECharacteristicValue() without delay in between will cause the write operation to fail. In this example, we give 250ms delay in between. This delay can be adjusted if needed.
 
 ## References
-This ZebraPrinterBLEDemo uses or refers to the following materials:
+This WeChatPrintDemo uses or refers to the following materials:
 * [Link-OS Environment Bluetooth Low Energy AppNote](https://www.zebra.com/content/dam/zebra/software/en/application-notes/AppNote-BlueToothLE-v4.pdf), by Zebra
 * [WeChat Mini-Program Software Development Kit](https://mp.weixin.qq.com/), by Tencent
