@@ -1,3 +1,4 @@
+其他语言版本：[English](https://github.com/Zebra/Zebra-Printer-Samples/edit/master/WeChat-MiniProgram-Samples/WeChatPrintDemo/README.md)
 ## 引言
 斑马的ZQ300/ZQ500系列移动打印机、ZD400/ZD600系列台式打印机、以及ZT600系列工业打印机，都具有蓝牙经典和蓝牙低功耗功能（Bluetooth Classic & Low Energy（LE）)。在这里，我们用该WeChatPrintDemo来展示如何从微信小程序打印标签和图像。同时，WeChatPrintDemo还展示了如何对打印机上的蓝牙（BLE）进行扫描、连接、及发送[ZPL](https://www.zebra.com/content/dam/zebra/manuals/en-us/software/zpl-zbi2-pm-en.pdf)。关于如何创建微信小程序，请参阅[微信小程序开发网站](https://mp.weixin.qq.com/)。您可以在上面注册开发者帐户、查看API文档、下载SDK和教程。
 
