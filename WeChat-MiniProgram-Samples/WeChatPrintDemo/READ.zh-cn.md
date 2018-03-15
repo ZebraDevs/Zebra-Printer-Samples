@@ -101,11 +101,11 @@ const WRITE_TO_ZPRINTER_CHARACTERISTIC_UUID  = "38EB4A82-C570-11E3-9507-0002A5D5
 ###### 以下是由斑马ZD410桌面打印机，在2英寸宽标签纸上打出的印条形码和徽标图像
 <img src="https://github.com/Zebra/Zebra-Printer-Samples/blob/master/WeChat-MiniProgram-Samples/WeChatPrintDemo/PrintoutOfWeChatPrintDem.jpg" width="400">
 
-## Notes
-1. On Android, the WeChat app should be granted with access permission to location service first. in order for this mini-program to scan for and connect to a Bluetooth LE device. Otherwise, this mini-program won't be able to find any BLE devices during the scan operation. To grant location permission to WeChat app, go to Settings -> Apps -> WeChat -> Permissions.
-2. On Android, the sequential execution of wx.writeBLECharacteristicValue() without delay in between will cause the write operation to fail. In this example, we give 250ms delay in between. This delay can be adjusted if needed.
+## 注意事项
+1. 在Android上，必须首先授予微信应用程序访问位置服务的权限，以便小程序扫描并连接到蓝牙LE设备。 否则，小程序将无法在扫描、连接操作过程中找到任何BLE设备。请通过“设置->应用->微信->权限”路径，对微信应用程序授予位置权限。
+2. 在Android上，如果在多次调用wx.writeBLECharacteristicValue()之间没有延迟，将导致写入操作失败。 在本例子中，我们给出了250ms的延迟。 如果需要，可以对该延迟进行调整。
 
-## References
-This ZebraPrinterBLEDemo uses or refers to the following materials:
-* [Link-OS Environment Bluetooth Low Energy AppNote](https://www.zebra.com/content/dam/zebra/software/en/application-notes/AppNote-BlueToothLE-v4.pdf), by Zebra
-* [WeChat Mini-Program Software Development Kit](https://mp.weixin.qq.com/), by Tencent
+## 参考文献
+本WeChatPrintDemo参照了如下文献:
+* 斑马：[Link-OS Environment Bluetooth Low Energy AppNote](https://www.zebra.com/content/dam/zebra/software/en/application-notes/AppNote-BlueToothLE-v4.pdf)
+* 腾讯：[微信小程序软件开发环境和工具](https://mp.weixin.qq.com/)
