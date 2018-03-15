@@ -8,12 +8,12 @@
 * [`! U1 setvar "bluetooth.le.controller_mode" "le"`](https://www.zebra.com/content/dam/zebra/manuals/en-us/software/zpl-zbi2-pm-en.pdf#page=1067)
 * [`! U1 setvar "bluetooth.le.controller_mode" "both"`](https://www.zebra.com/content/dam/zebra/manuals/en-us/software/zpl-zbi2-pm-en.pdf#page=1067)
 
-## Services on Zebra printers
-The Zebra Bluetooth LE enabled printers offer two services, i.e. Device Information Service (DIS, UUID is `0x180A`) and Parser Service (UUID is `38eb4a80-c570-11e3-9507-0002a5d5c51b`). These services cannot be discovered unless the central device has connected to the printer.
+## 斑马打印机上的蓝牙LE服务
+斑马打印机在蓝牙LE上提供了两种服务：一种是DIS服务(Device Information Service, UUID: `0x180A`)，另一种是解析服务(Parser Service, UUID: `38eb4a80-c570-11e3-9507-0002a5d5c51b`)。这两种服务只能在蓝牙LE连接上以后，才能被发现。
 
-The DIS is a standard service that includes the characteristics of Device Name, Serial Number, Firmware Revision, etc. that can be read back. The Parser Service offers two characteristics for getting data from printer (named as `"From Printer Data"`) and for sending data to printer (named as `"To Printer Data"`). 
+DIS是一种蓝牙的标准服务。中央设备(Central Devices)可以从DIS服务中读回打印机的设备名称、序列号、固件版本等特征值。解析服务是斑马打印机特有的服务，该服务包含两种特征值：从打印机读数据(`"From Printer Data"`)和向打印机写数据(`"To Printer Data"`)。
 
-As defined in [Link-OS Environment Bluetooth Low Energy AppNote](https://www.zebra.com/content/dam/zebra/software/en/application-notes/AppNote-BlueToothLE-v4.pdf) document by Zebra, the UUIDs of the services and characteristics of Zebra BLE enabled printers are defined in pages/index/index.js file as below.
+斑马打印机蓝牙LE服务和特征值的UUID，都已经由[Link-OS Environment Bluetooth Low Energy AppNote](https://www.zebra.com/content/dam/zebra/software/en/application-notes/AppNote-BlueToothLE-v4.pdf)文档定义好了，如下面所示：
 ```javascript
 // Zebra Bluetooth LE services and characteristics UUIDs
 const ZPRINTER_DIS_SERVICE_UUID = "0000180A-0000-1000-8000-00805F9B34FB" // Or "180A". Device Information Services UUID
