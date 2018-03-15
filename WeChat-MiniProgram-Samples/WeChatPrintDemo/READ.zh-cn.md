@@ -22,8 +22,8 @@ const READ_FROM_ZPRINTER_CHARACTERISTIC_UUID = "38EB4A81-C570-11E3-9507-0002A5D5
 const WRITE_TO_ZPRINTER_CHARACTERISTIC_UUID  = "38EB4A82-C570-11E3-9507-0002A5D5C51B" // Write to printer characteristic
 ```
 
-## Write to characteristic
-Each write to the characteristic operation is limited to a number of bytes in BLE. We need to break the ZPL or image data into small chunks and write a chunk of bytes a time to the characteristic. On iOS, the wx.writeBLECharacteristicValue() has no issues when writing each chunk one after another. On Android, however, we must provide a delay between the writes of chunks. Following code illustrates how to break the ZPL or image data into chunks and how the delay is implemented for Android. Both the maxChunk and the delay in setTimeout() should be tuned to fit a particular Android device and performance. Currently, the delay is 250ms for each write.
+## 向特征值写数据
+在每次向BLE特征值写数据时，数据的字节数是有限制的。因此，我们必须把ZPL或图像数据先分成小块，再写进特征值。在iOS上，可以连续调用wx.writeBLECharacteristicValue()来写入特征值，是没有问题的。但在Android上，连续调用wx.writeBLECharacteristicValue()会出错，必须在每次调用之间加入延迟。以下的代码展示了如何将ZPL和图像数据分块、以及如何在Android上实现延迟。maxChunk值的大小和setTimeout()中的延迟大小都应该根据实际情况进行调整。目前，maxChunk值暂定为300字节，setTimeout()的延迟暂定为250毫秒。
 ```javascript
   // Write printer language string to the printer
   writeStringToPrinter: function (str) {
@@ -94,11 +94,11 @@ Each write to the characteristic operation is limited to a number of bytes in BL
   },
 ```
 
-## Screenshot and printout
-###### A screenshot of the mini-program
+## 截图和打印输出
+###### 以下是该微信小程序的截图
 <img src="https://github.com/Zebra/Zebra-Printer-Samples/blob/master/WeChat-MiniProgram-Samples/WeChatPrintDemo/WeChatPrintDemo.jpg" width="400">
 
-###### Printouts of a barcode and a logo image on a 2" wide label from Zebra ZD410 desktop printer
+###### 以下是由斑马ZD410桌面打印机，在2英寸宽标签纸上打出的印条形码和徽标图像
 <img src="https://github.com/Zebra/Zebra-Printer-Samples/blob/master/WeChat-MiniProgram-Samples/WeChatPrintDemo/PrintoutOfWeChatPrintDem.jpg" width="400">
 
 ## Notes
