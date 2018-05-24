@@ -97,10 +97,10 @@ const WRITE_TO_ZPRINTER_CHARACTERISTIC_UUID  = "38EB4A82-C570-11E3-9507-0002A5D5
 
 ## 截图和打印输出
 ###### 以下是该微信小程序的截图
-<img src="https://github.com/Zebra/Zebra-Printer-Samples/blob/master/WeChat-MiniProgram-Samples/WeChatPrintDemo/WeChatPrintDemo.jpg" width="400">
+<img src="https://developer.zebra.com/resources/statics/56275/WeChatPrintDemo.jpg" width="400">
 
 ###### 以下是由斑马ZD410桌面打印机，在2英寸宽标签纸上打出的印条形码和徽标图像
-<img src="https://github.com/Zebra/Zebra-Printer-Samples/blob/master/WeChat-MiniProgram-Samples/WeChatPrintDemo/PrintoutOfWeChatPrintDem.jpg" width="400">
+<img src="https://developer.zebra.com/resources/statics/56275/PrintoutWeChatDem.jpg" width="400">
 
 ## 注意事项
 1. 在Android上，必须首先授予微信应用程序访问位置服务的权限，以便小程序扫描并连接到蓝牙LE设备。 否则，小程序将无法在扫描、连接操作过程中找到任何BLE设备。请通过“设置->应用->微信->权限”路径，对微信应用程序授予位置权限。
