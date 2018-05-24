@@ -98,7 +98,7 @@ Each write to the characteristic operation is limited to a number of bytes in BL
 
 ## Screenshot and printout
 ###### A screenshot of the mini-program
-<img src="https://github.com/Zebra/Zebra-Printer-Samples/blob/master/WeChat-MiniProgram-Samples/WeChatPrintDemo/WeChatPrintDemo.jpg" width="400">
+<img src="https://developer.zebra.com/resources/statics/56275/WeChatPrintDemo.jpg?a=1527174443991" width="400">
 
 ###### Printouts of a barcode and a logo image on a 2" wide label from Zebra ZD410 desktop printer
 <img src="https://github.com/Zebra/Zebra-Printer-Samples/blob/master/WeChat-MiniProgram-Samples/WeChatPrintDemo/PrintoutOfWeChatPrintDem.jpg" width="400">
