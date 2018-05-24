@@ -101,7 +101,7 @@ Each write to the characteristic operation is limited to a number of bytes in BL
 <img src="https://developer.zebra.com/resources/statics/56275/WeChatPrintDemo.jpg" width="400">
 
 ###### Printouts of a barcode and a logo image on a 2" wide label from Zebra ZD410 desktop printer
-<img src="https://github.com/Zebra/Zebra-Printer-Samples/blob/master/WeChat-MiniProgram-Samples/WeChatPrintDemo/PrintoutOfWeChatPrintDem.jpg" width="400">
+<img src="https://developer.zebra.com/resources/statics/56275/PrintoutWeChatDem.jpg" width="400">
 
 ## Notes
 1. On Android, the WeChat app should be granted with access permission to location service first. in order for this mini-program to scan for and connect to a Bluetooth LE device. Otherwise, this mini-program won't be able to find any BLE devices during the scan operation. To grant location permission to WeChat app, go to Settings -> Apps -> WeChat -> Permissions.
