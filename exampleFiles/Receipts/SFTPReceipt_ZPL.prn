@@ -1,0 +1,127 @@
+
+^FX------------------------------------^FS
+^FX               HEADER               ^FS
+^FX------------------------------------^FS
+﻿CT~~CD,~CC^~CT~
+^XA
+^DFR:SFTPReceipt_E068.ZPL^FS
+~TA000
+~JSN
+^LT0
+^MNN
+^MTT
+^PON
+^PMN
+^LH0,0
+^JMA
+^PR8,8
+~SD15
+^JUS
+^LRN
+^CI27
+^PA0,1,1,0
+^MMT
+^PW345
+^LL196
+^LS0
+^FO4,16^GB336,0,5^FS
+^FO4,48^GB336,0,5^FS
+^FO4,187^GB336,0,5^FS
+^FPH,1^FO8,144^A0I,39,41^FB329,1,10,C^FH\^CI28^FN1"varcompany"^FS^CI27
+^FPH,1^FO39,112^A0I,20,20^FB269,1,5,C^FH\^CI28^FN2"varaddress1"^FS^CI27
+^FPH,1^FO39,87^A0I,20,20^FB269,1,5,C^FH\^CI28^FN3"varaddress2"^FS^CI27
+^FPH,1^FO39,61^A0I,20,20^FB269,1,5,C^FH\^CI28^FN4"varphone"^FS^CI27
+^FPH,1^FO252,27^A0I,20,20^FB85,1,5,L^FH\^CI28^FN5"varstore"^FS^CI27
+^FPH,1^FO10,27^A0I,20,20^FB230,1,5,R^FH\^CI28^FN6"vardatetime"^FS^CI27
+
+^XZ
+
+^FX------------------------------------^FS
+^FX               BODY                 ^FS
+^FX------------------------------------^FS
+﻿CT~~CD,~CC^~CT~
+^XA
+^DFR:SFTPReceipt_Body.ZPL^FS
+~TA000
+~JSN
+^LT0
+^MNN
+^MTT
+^PON
+^PMN
+^LH0,0
+^JMA
+^PR8,8
+~SD15
+^JUS
+^LRN
+^CI27
+^PA0,1,1,0
+^MMT
+^PW345
+^LL36
+^LS0
+^FPH,1^FO96,6^A0I,25,25^FB244,1,6,L^FH\^CI28^FN1"varitemdesc"^FS^CI27
+^FPH,1^FO3,6^A0I,25,25^FB92,1,6,R^FH\^CI28^FN2"varprice"^FS^CI27
+
+^XZ
+
+^FX------------------------------------^FS
+^FX               FOOTER               ^FS
+^FX------------------------------------^FS
+﻿CT~~CD,~CC^~CT~
+^XA
+^DFR:SFTPReceipt_6C5B.ZPL^FS
+~TA000
+~JSN
+^LT0
+^MNN
+^MTT
+^PON
+^PMN
+^LH0,0
+^JMA
+^PR8,8
+~SD15
+^JUS
+^LRN
+^CI27
+^PA0,1,1,0
+^MMT
+^PW345
+^LL376
+^LS0
+^FO4,300^GB336,0,5^FS
+^FO4,80^GB336,0,5^FS
+^FO16,160^GB314,0,1^FS
+^FPH,1^FT338,124^A0I,23,23^FB332,1,6,C^FH\^CI28^FDThank you for shopping with us^FS^CI27
+^FPH,1^FT338,95^A0I,23,23^FB332,1,6,C^FH\^CI28^FDWe appreciate your business^FS^CI27
+^FPH,1^FT302,254^A0I,25,25^FH\^CI28^FDCardholder Signature:^FS^CI27
+^FPH,1^FT338,325^A0I,45,46^FH\^CI28^FDTOTAL:^FS^CI27
+^FPH,1^FO2,326^A0I,45,46^FB181,1,12,R^FH\^CI28^FN1"vartotal"^FS^CI27
+
+^XZ
+
+^XA
+^XFR:SFTPReceipt_E068.ZPL^FS
+^CI28^FN1^FH\^FDSample Receipt^FS^CI27
+^CI28^FN2^FH\^FD555 S Anystreet^FS^CI27
+^CI28^FN3^FH\^FDAustin, TX 70745^FS^CI27
+^CI28^FN4^FH\^FD555-555-5555^FS^CI27
+^CI28^FN5^FH\^FDStore #2^FS^CI27
+^CI28^FN6^FH\^FD11/19/2019 @ 11:33AM^FS^CI27
+^PQ1,0,1
+^XZ
+
+^XA
+^XFR:SFTPReceipt_Body.ZPL^FS
+^CI28^FN1^FH\^FDOatmeal Raisin Bars^FS^CI27
+^CI28^FN2^FH\^FD$999.99^FS^CI27
+^PQ1,0,1
+^XZ
+
+^XA
+^XFR:SFTPReceipt_6C5B.ZPL^FS
+^CI28^FN1^FH\^FD$9999.99^FS^CI27
+^PQ1,0,1
+^XZ
