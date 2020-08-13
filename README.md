@@ -1,6 +1,11 @@
 # Zebra-Printer-Samples
 Contains Zebra printer related samples, demos, etc.
 
+## Projects contained in this repository:
+[WeChat Print Demo](https://github.com/ZebraDevs/Zebra-Printer-Samples/tree/WeChat-MiniProgram-Samples) - Print from WeChat MiniProgram.
+
+[Print From the Cloud Demo](https://github.com/ZebraDevs/Zebra-Printer-Samples/tree/Print-From-Zebra-Data-Services-Cloud-Example) - Use the [SendFileToPrinter API](https://developer.zebra.com/apis/sendfiletoprinter) from [Zebra Data Services](https://developer.zebra.com/node/1453) to print from the cloud.
+
 
 # Notes
 All printer sample code is selectable from the branches on this repository.
@@ -18,7 +23,7 @@ Find [API Documentation](http://techdocs.zebra.com/link-os) here.
 **(UNRESTRICTED SOFTWARE)** 
  [link](http://link-os.github.io/Zebra_SDK_EULA.pdf)
 
-k
+
 **IMPORTANT PLEASE READ CAREFULLY:** This End User License Agreement ("EULA") is a legal
 agreement between you (either an individual or a single entity) and Zebra
 International Holdings Corporation ("Zebra") for software, owned by Zebra and its
