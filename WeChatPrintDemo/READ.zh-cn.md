@@ -1,13 +1,13 @@
 其他语言版本：[English](https://github.com/ZebraDevs/Zebra-Printer-Samples/blob/WeChat-MiniProgram-Samples/WeChatPrintDemo/README.md)
 ## 引言
-斑马的ZQ300/ZQ500系列移动打印机、ZD400/ZD600系列台式打印机、以及ZT600系列工业打印机，都具有蓝牙经典和蓝牙低功耗功能（Bluetooth Classic & Low Energy（LE）)。在这里，我们用该WeChatPrintDemo来展示如何从微信小程序打印标签和图像。同时，WeChatPrintDemo还展示了如何对打印机上的蓝牙（BLE）进行扫描、连接、及发送[ZPL](https://www.zebra.com/content/dam/zebra/manuals/en-us/software/zpl-zbi2-pm-en.pdf)。关于如何创建微信小程序，请参阅[微信小程序开发网站](https://mp.weixin.qq.com/)。您可以在上面注册开发者帐户、查看API文档、下载SDK和教程。
+斑马的ZQ300/ZQ500系列移动打印机、ZD400/ZD600系列台式打印机、以及ZT600系列工业打印机，都具有蓝牙经典和蓝牙低功耗功能（Bluetooth Classic & Low Energy（LE）)。在这里，我们用该WeChatPrintDemo来展示如何从微信小程序打印标签和图像。同时，WeChatPrintDemo还展示了如何对打印机上的蓝牙（BLE）进行扫描、连接、及发送[ZPL](https://www.zebra.com/content/dam/zebra/manuals/printers/common/programming/zpl-zbi2-pm-en.pdf)。关于如何创建微信小程序，请参阅[微信小程序开发网站](https://mp.weixin.qq.com/)。您可以在上面注册开发者帐户、查看API文档、下载SDK和教程。
 
-若要查询打印机上的蓝牙LE是否开启，可以用[Zebra Setup Utilities](https://www.zebra.com/us/en/products/software/barcode-printers/zebralink/zebra-setup-utility.html)来发送如下[SGD (Set-Get-Do)](https://www.zebra.com/content/dam/zebra/manuals/en-us/software/zpl-zbi2-pm-en.pdf#page=1067)命令:
-* [`! U1 getvar "bluetooth.le.controller_mode"`](https://www.zebra.com/content/dam/zebra/manuals/en-us/software/zpl-zbi2-pm-en.pdf#page=1067)
+若要查询打印机上的蓝牙LE是否开启，可以用[Zebra Setup Utilities](https://www.zebra.com/us/en/products/software/barcode-printers/zebralink/zebra-setup-utility.html)来发送如下[SGD (Set-Get-Do)](https://www.zebra.com/content/dam/zebra/manuals/printers/common/programming/zpl-zbi2-pm-en.pdf#page=1135)命令:
+* [`! U1 getvar "bluetooth.le.controller_mode"`](https://www.zebra.com/content/dam/zebra/manuals/printers/common/programming/zpl-zbi2-pm-en.pdf#page=1135)
 
-若要开启打印机上的蓝牙LE，可以用[Zebra Setup Utilities](https://www.zebra.com/us/en/products/software/barcode-printers/zebralink/zebra-setup-utility.html)来发送如下[SGD (Set-Get-Do)](https://www.zebra.com/content/dam/zebra/manuals/en-us/software/zpl-zbi2-pm-en.pdf#page=1067)命令:
-* [`! U1 setvar "bluetooth.le.controller_mode" "le"`](https://www.zebra.com/content/dam/zebra/manuals/en-us/software/zpl-zbi2-pm-en.pdf#page=1067)
-* [`! U1 setvar "bluetooth.le.controller_mode" "both"`](https://www.zebra.com/content/dam/zebra/manuals/en-us/software/zpl-zbi2-pm-en.pdf#page=1067)
+若要开启打印机上的蓝牙LE，可以用[Zebra Setup Utilities](https://www.zebra.com/us/en/products/software/barcode-printers/zebralink/zebra-setup-utility.html)来发送如下[SGD (Set-Get-Do)](https://www.zebra.com/content/dam/zebra/manuals/printers/common/programming/zpl-zbi2-pm-en.pdf#page=1135)命令:
+* [`! U1 setvar "bluetooth.le.controller_mode" "le"`](https://www.zebra.com/content/dam/zebra/manuals/printers/common/programming/zpl-zbi2-pm-en.pdf#page=1135)
+* [`! U1 setvar "bluetooth.le.controller_mode" "both"`](https://www.zebra.com/content/dam/zebra/manuals/printers/common/programming/zpl-zbi2-pm-en.pdf#page=1135)
 
 ## 斑马打印机上的蓝牙LE服务
 斑马打印机在蓝牙LE上提供了两种服务：一种是DIS服务(Device Information Service, UUID: `0x180A`)，另一种是解析服务(Parser Service, UUID: `38eb4a80-c570-11e3-9507-0002a5d5c51b`)。这两种服务只能在蓝牙LE连接上以后，才能被发现。
