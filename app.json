@@ -1,0 +1,12 @@
+{
+  "name": "ZSDK_RCT_DevDemo",
+  "displayName": "ZSDK_RCT_DevDemo",
+  "expo": {
+    "name": "ZSDK_RCT_DevDemo",
+    "slug": "ZSDK_RCT_DevDemo",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
