@@ -6,7 +6,7 @@ Contains Zebra printer related samples, demos, etc.
 
 [Print From the Cloud Demo](https://github.com/ZebraDevs/Zebra-Printer-Samples/tree/Print-From-Zebra-Data-Services-Cloud-Example) - Use the [SendFileToPrinter API](https://developer.zebra.com/apis/sendfiletoprinter) from [Zebra Data Services](https://developer.zebra.com/node/1453) to print from the cloud.
 
-[ZSDK React Native DevDemo](https://github.com/ZebraDevs/Zebra-Printer-Samples/tree/ZSDKRCTDevDemo) - A React Native demo app for Bluetooth printer discovery and sample test label, using Link-OS SDK libraries for Android and iOS.
+[ZSDK React Native DevDemo](https://github.com/ZebraDevs/Zebra-Printer-Samples/tree/ZSDKRCTDevDemo) - Demonstrate how to integrate React Native with Link-OS SDK libraries for Android and iOS.
 
 # Notes
 All printer sample code is selectable from the branches on this repository.
