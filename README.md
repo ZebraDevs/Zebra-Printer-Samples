@@ -12,6 +12,8 @@ Contains Zebra printer related samples, demos, etc.
 
 [ZSDK React Native DevDemo](https://github.com/ZebraDevs/Zebra-Printer-Samples/tree/ZSDKRCTDevDemo) - Demonstrate how to integrate React Native with Link-OS SDK libraries for Android and iOS.
 
+[Updated Link-OS SDK for Android BTLE](https://github.com/ZebraDevs/Zebra-Printer-Samples/tree/Link-OS_Android_SDK_BLE) - The updated Link-OS SDK for Android BTLE for the newer Android devices on Android 8 or later for improved BTLE connection.
+
 # Notes
 All printer sample code is selectable from the branches on this repository.
 
